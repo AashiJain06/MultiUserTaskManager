@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm" th:fragment="header">
+    <div class="container-fluid">
+
+        <!-- App Name -->
+        <a class="navbar-brand fw-bold" href="#">Task Manager</a>
+
+        <!-- Toggle for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu items -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- Left side menu -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}">🏠 Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/tasks}">📋 Task List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/tasks/create}">➕ Create Task</a>
+                </li>
+            </ul>
+
+            <!-- Right side buttons -->
+            <div>
+                <a th:href="@{/register}" class="btn btn-outline-primary me-2">Register</a>
+                <a th:href="@{/login}" class="btn btn-primary">Login</a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
