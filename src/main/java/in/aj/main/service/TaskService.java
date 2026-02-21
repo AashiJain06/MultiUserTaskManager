@@ -12,4 +12,7 @@ public interface TaskService {
 	TaskDto getTaskById(Long id);
 	
 	void updateTask(TaskDto taskDto);
+	
+	void deleteTask(Long id);
+	
 }

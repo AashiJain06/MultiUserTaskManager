@@ -18,7 +18,7 @@ public class TaskServiceImpl implements TaskService{
 	private ModelMapper modelMapper;
 	@Override
 	public void updateTask(TaskDto taskDto) {
-		// TODO Auto-generated method stub
+		taskRepository.save(modelMapper.map(taskDto,Task.class));
 		
 	}
 
@@ -37,8 +37,20 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public TaskDto getTaskById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Task task = taskRepository.findById(id).get();
+		TaskDto taskDto = modelMapper.map(task, TaskDto.class);
+		return taskDto;
 	}
+
+	@Override
+	public void deleteTask(Long id) {
+		taskRepository.deleteById(id);
+		
+	}
+
+	
+
+	
+	
    
 }
