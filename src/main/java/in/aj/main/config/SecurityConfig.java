@@ -31,22 +31,22 @@ public class SecurityConfig {
 	{
 		return new BCryptPasswordEncoder();
 	}
-	@Bean
-	public UserDetailsService userDetailService()
-	{
-		UserDetails aashi = User.builder()
-				.username("Aashi")
-				.password(passwordEncoder().encode("Aashi!123"))
-				.roles("USER")
-				.build();
-		
-		UserDetails admin = User.builder()
-				.username("Admin")
-				.password("Admin@123")
-				.roles("ADMIN")
-				.build();
-		
-		return new InMemoryUserDetailsManager(aashi,admin);
-	}
+//	@Bean
+//	public UserDetailsService userDetailService()
+//	{
+//		UserDetails aashi = User.builder()
+//				.username("Aashi")
+//				.password(passwordEncoder().encode("Aashi!123"))
+//				.roles("USER")
+//				.build();
+//		 
+//		UserDetails admin = User.builder()
+//				.username("Admin")
+//				.password("Admin@123")
+//				.roles("ADMIN")
+//				.build();
+//		
+//		return new InMemoryUserDetailsManager(aashi,admin);
+//	}
 
 }
