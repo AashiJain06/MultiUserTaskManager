@@ -2,6 +2,7 @@ package in.aj.main.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,8 @@ import lombok.AllArgsConstructor;
 @Controller
 public class TaskController {
 	public TaskService taskService;
+	
+ @PreAuthorize("hasAnyRole('ADMIN','USER')")
  @GetMapping("/tasks")
  public String getAllTask(Model model)
  {
@@ -31,12 +34,15 @@ public class TaskController {
 	 model.addAttribute("task", taskDto);
 	 return "tasks/createTask.html";
   }
+ @PreAuthorize("hasRole('ADMIN')")
   @PostMapping("/tasks")
   public String submitTask(@ModelAttribute("task") TaskDto taskDto,Model model)
   {
 	  taskService.createTask(taskDto);
 	  return "redirect:/tasks?success";
   }
+ 
+ @PreAuthorize("hasRole('ADMIN')")
   @GetMapping("/tasks/delete/{id}")
   public String deleteTask(@PathVariable("id") Long id)
   {

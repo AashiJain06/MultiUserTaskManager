@@ -1,5 +1,9 @@
 package in.aj.main.repository;
 
-public interface RoleRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import in.aj.main.entity.Role;
+
+public interface RoleRepository extends JpaRepository<Role, Long>{
 
 }
